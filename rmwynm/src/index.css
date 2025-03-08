@@ -1,0 +1,86 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import url('https://fonts.googleapis.com/css2?family=Forum&display=swap');
+
+:root {
+  --dark-green: #013020;
+}
+
+@keyframes fillColor {
+  0% {
+    background-color: white;
+  }
+  100% {
+    background-color: var(--dark-green);
+  }
+}
+
+@keyframes typewriter {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes blinkTextCursor {
+  from {
+    border-right-color: rgba(255, 255, 255, 0.75);
+  }
+  to {
+    border-right-color: transparent;
+  }
+}
+
+@keyframes borderTrace {
+  0% {
+    border-color: transparent;
+  }
+  25% {
+    border-top-color: gold;
+  }
+  50% {
+    border-top-color: gold;
+    border-right-color: gold;
+  }
+  75% {
+    border-top-color: gold;
+    border-right-color: gold;
+    border-bottom-color: gold;
+  }
+  100% {
+    border-color: gold;
+  }
+}
+
+
+html {
+  font-family: 'Forum', serif;
+}
+
+body {
+  animation: fillColor 2s forwards;
+}
+
+.typewriter h1 {
+  overflow: hidden;
+  border-right: .05em solid rgba(255, 255, 255, 0.75);
+  white-space: nowrap;
+  margin: 0 auto;
+  letter-spacing: .05em;
+  animation: 
+    typewriter 2s steps(40, end) 3s 1 normal both,
+    blinkTextCursor 1000ms steps(40, end) 1s 5 normal both;
+}
+
+.border-animation {
+  position: absolute;
+  top: 5em;
+  left: 5em;
+  right: 5em;
+  bottom: 5em;
+  border: 2px solid transparent;
+  animation: borderTrace 2s linear 2s normal both;
+}
