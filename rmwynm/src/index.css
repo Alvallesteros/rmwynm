@@ -99,3 +99,239 @@ body {
 .fade-in-up {
   animation: slideUpFadeIn 1s ease-out forwards;
 }
+
+  /* Grid system styles */
+  .grid-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: calc(100vw /  18);
+    gap: 1rem;
+    width: 100%;
+  }
+
+  /* Fixed size cells with 6:1 aspect ratio */
+  .grid-cell {
+    width: 100%;
+    min-height: 50px; /* Minimum height to ensure visibility */
+    position: relative;
+    overflow: hidden;
+    border-radius: 0.5rem;
+    background-color: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(5px);
+    padding: 1rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .grid-cell:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  }
+
+  /* Card size modifiers based on tuples for a 3-column grid */
+  .grid-cell-1-1 {
+    grid-column: span 1;
+    grid-row: span 1;
+  }
+
+  .grid-cell-1-2 {
+    grid-column: span 2;
+    grid-row: span 1;
+  }
+
+  .grid-cell-1-3 {
+    grid-column: span 3;
+    grid-row: span 1;
+  }
+
+  .grid-cell-2-1 {
+    grid-column: span 1;
+    grid-row: span 2;
+  }
+
+  .grid-cell-2-2 {
+    grid-column: span 2;
+    grid-row: span 2;
+  }
+  
+  .grid-cell-2-3 {
+    grid-column: span 3;
+    grid-row: span 2;
+  }
+  
+  .grid-cell-3-1 {
+    grid-column: span 1;
+    grid-row: span 3;
+  }
+  
+  .grid-cell-3-2 {
+    grid-column: span 2;
+    grid-row: span 3;
+  }
+  
+  .grid-cell-3-3 {
+    grid-column: span 3;
+    grid-row: span 3;
+  }
+
+  .grid-cell-4-1 {
+    grid-column: span 1;
+    grid-row: span 4;
+  }
+  
+  .grid-cell-4-2 {
+    grid-column: span 2;
+    grid-row: span 4;
+  }
+  
+  .grid-cell-4-3 {
+    grid-column: span 3;
+    grid-row: span 4;
+  }
+
+  .grid-cell-5-1 {
+    grid-column: span 1;
+    grid-row: span 5;
+  }
+  
+  .grid-cell-5-2 {
+    grid-column: span 2;
+    grid-row: span 5;
+  }
+  
+  .grid-cell-5-3 {
+    grid-column: span 3;
+    grid-row: span 5;
+  }
+
+  .grid-cell-6-1 {
+    grid-column: span 1;
+    grid-row: span 6;
+  }
+  
+  .grid-cell-6-2 {
+    grid-column: span 2;
+    grid-row: span 6;
+  }
+  
+  .grid-cell-6-3 {
+    grid-column: span 3;
+    grid-row: span 6;
+  }
+
+  /* Card content styles */
+  .card-content {
+    height: 100%;
+    width: 100%;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* Make the grid responsive */
+  @media (max-width: 768px) {
+    .grid-container {
+      grid-template-columns: repeat(2, 1fr); /* 2 columns on medium screens */
+    }
+    
+    .grid-cell-1-3,
+    .grid-cell-2-3,
+    .grid-cell-3-3 {
+      grid-column: span 2;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .grid-container {
+      grid-template-columns: 1fr; /* 1 column on small screens */
+    }
+    
+    .grid-cell {
+      grid-column: span 1 !important;
+      grid-row: span 1 !important;
+      aspect-ratio: auto;
+      min-height: 250px;
+    }
+  }
+
+
+  /* Sidebar styles */
+  .hamburger {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 100;
+    cursor: pointer;
+  }
+
+  .bar {
+    width: 25px;
+    height: 3px;
+    background-color: #333;
+    margin: 5px 0;
+    transition: 0.4s;
+  }
+
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: -300px;
+    width: 300px;
+    height: 100vh;
+    background-color: #f5f5f5;
+    transition: 0.3s;
+    z-index: 1000;
+    overflow-y: auto;
+    padding: 20px 0;
+  }
+
+  .sidebar.open {
+    left: 0;
+  }
+
+  .nav-header {
+    padding: 0 20px;
+    margin-bottom: 20px;
+  }
+
+  .nav-items {
+    max-height: calc(100vh - 100px);
+    overflow-y: auto;
+    padding: 0 20px;
+  }
+
+  .nav-items {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    
+    li {
+      padding: 15px 20px;
+      border-bottom: 1px solid #eee;
+      
+      a {
+        text-decoration: none;
+        color: #333;
+        display: block;
+        font-size: 1.1rem;
+        
+        &:hover {
+          color: #666;
+        }
+      }
+    }
+  }
+
+  .overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
+    z-index: 98;
+    display: none;
+    
+    &.show {
+      display: block;
+    }
+  }
