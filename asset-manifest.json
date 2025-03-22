@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/rmwynm/static/css/main.a7abd648.css",
+    "main.js": "/rmwynm/static/js/main.9a8414e0.js",
+    "index.html": "/rmwynm/index.html",
+    "main.a7abd648.css.map": "/rmwynm/static/css/main.a7abd648.css.map",
+    "main.9a8414e0.js.map": "/rmwynm/static/js/main.9a8414e0.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.a7abd648.css",
+    "static/js/main.9a8414e0.js"
+  ]
+}
