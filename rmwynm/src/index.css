@@ -104,12 +104,51 @@ body {
   .grid-container {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    grid-auto-rows: calc(100vh / 6);
+    grid-auto-rows: calc(100vh / 8);
     gap: 1rem;
     width: 100%;
   }
 
-  /* Fixed size cells with 6:1 aspect ratio */
+  /* Adjust row height for different screen sizes */
+  @media (max-height: 825px) {
+    .grid-container {
+      grid-auto-rows: calc(100vh / 7);
+    }
+  }
+  @media (max-height: 725px) {
+    .grid-container {
+      grid-auto-rows: calc(100vh / 6);
+    }
+  }
+  @media (max-height: 625px) {
+    .grid-container {
+      grid-auto-rows: calc(100vh / 5);
+    }
+  }
+  @media (max-height: 625px) {
+    .grid-container {
+      grid-auto-rows: calc(100vh / 5);
+    }
+  }
+  @media (max-height: 525px) {
+    .grid-container {
+      grid-auto-rows: calc(100vh / 4);
+    }
+  }
+  @media (max-height: 425px) {
+    .grid-container {
+      grid-auto-rows: calc(100vh / 3);
+    }
+  }
+  @media (max-height: 325px) {
+    .grid-container {
+      grid-auto-rows: calc(100vh / 2);
+    }
+  }
+  
+
+
+  /* Fixed size cells with responsive behavior */
   .grid-cell {
     width: 100%;
     height: auto;
@@ -127,97 +166,60 @@ body {
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
   }
 
-  /* Card size modifiers based on tuples for a 3-column grid */
-  .grid-cell-1-1 {
-    grid-column: span 1;
-    grid-row: span 1;
-  }
+  /* Card size modifiers for large screens (3-column grid) */
+  .grid-cell-1-1 { grid-column: span 1; grid-row: span 1; }
+  .grid-cell-1-2 { grid-column: span 2; grid-row: span 1; }
+  .grid-cell-1-3 { grid-column: span 3; grid-row: span 1; }
+  .grid-cell-2-1 { grid-column: span 1; grid-row: span 2; }
+  .grid-cell-2-2 { grid-column: span 2; grid-row: span 2; }
+  .grid-cell-2-3 { grid-column: span 3; grid-row: span 2; }
+  .grid-cell-3-1 { grid-column: span 1; grid-row: span 3; }
+  .grid-cell-3-2 { grid-column: span 2; grid-row: span 3; }
+  .grid-cell-3-3 { grid-column: span 3; grid-row: span 3; }
+  .grid-cell-4-1 { grid-column: span 1; grid-row: span 4; }
+  .grid-cell-4-2 { grid-column: span 2; grid-row: span 4; }
+  .grid-cell-4-3 { grid-column: span 3; grid-row: span 4; }
+  .grid-cell-5-1 { grid-column: span 1; grid-row: span 5; }
+  .grid-cell-5-2 { grid-column: span 2; grid-row: span 5; }
+  .grid-cell-5-3 { grid-column: span 3; grid-row: span 5; }
+  .grid-cell-6-1 { grid-column: span 1; grid-row: span 6; }
+  .grid-cell-6-2 { grid-column: span 2; grid-row: span 6; }
+  .grid-cell-6-3 { grid-column: span 3; grid-row: span 6; }
 
-  .grid-cell-1-2 {
-    grid-column: span 2;
-    grid-row: span 1;
-  }
-
-  .grid-cell-1-3 {
-    grid-column: span 3;
-    grid-row: span 1;
-  }
-
-  .grid-cell-2-1 {
-    grid-column: span 1;
-    grid-row: span 2;
-  }
-
-  .grid-cell-2-2 {
-    grid-column: span 2;
-    grid-row: span 2;
-  }
-  
-  .grid-cell-2-3 {
-    grid-column: span 3;
-    grid-row: span 2;
-  }
-  
-  .grid-cell-3-1 {
-    grid-column: span 1;
-    grid-row: span 3;
-  }
-  
-  .grid-cell-3-2 {
-    grid-column: span 2;
-    grid-row: span 3;
-  }
-  
-  .grid-cell-3-3 {
-    grid-column: span 3;
-    grid-row: span 3;
-  }
-
-  .grid-cell-4-1 {
-    grid-column: span 1;
-    grid-row: span 4;
+  /* Medium screens (tablet): 2-column layout */
+  @media (max-width: 1024px) {
+    .grid-container {
+      grid-template-columns: 1fr;
+      grid-auto-rows: minmax(150px, auto);
+    }
+    
+    /* All cells take full width in single column */
+    .grid-cell {
+      grid-column: span 1 !important;
+      min-height: 200px;
+    }
+    
+    /* Adjust row spans for better mobile experience */
+    .grid-cell-1-1 { grid-column: span 1 };
+    .grid-cell-1-2 { grid-column: span 1 };
+    .grid-cell-1-3 { grid-column: span 1 };
+    .grid-cell-2-1 { grid-column: span 1 };
+    .grid-cell-2-2 { grid-column: span 1 };
+    .grid-cell-2-3 { grid-column: span 1 };
+    .grid-cell-3-1 { grid-column: span 1 };
+    .grid-cell-3-2 { grid-column: span 1 };
+    .grid-cell-3-3 { grid-column: span 1 };
+    .grid-cell-4-1 { grid-column: span 1 };
+    .grid-cell-4-2 { grid-column: span 1 };
+    .grid-cell-4-3 { grid-column: span 1 };
+    .grid-cell-5-1 { grid-column: span 1 };
+    .grid-cell-5-2 { grid-column: span 1 };
+    .grid-cell-5-3 { grid-column: span 1 };
+    .grid-cell-6-1 { grid-column: span 1 };
+    .grid-cell-6-2 { grid-column: span 1 };
+    .grid-cell-6-3 { grid-column: span 1 };
   }
   
-  .grid-cell-4-2 {
-    grid-column: span 2;
-    grid-row: span 4;
-  }
-  
-  .grid-cell-4-3 {
-    grid-column: span 3;
-    grid-row: span 4;
-  }
-
-  .grid-cell-5-1 {
-    grid-column: span 1;
-    grid-row: span 5;
-  }
-  
-  .grid-cell-5-2 {
-    grid-column: span 2;
-    grid-row: span 5;
-  }
-  
-  .grid-cell-5-3 {
-    grid-column: span 3;
-    grid-row: span 5;
-  }
-
-  .grid-cell-6-1 {
-    grid-column: span 1;
-    grid-row: span 6;
-  }
-  
-  .grid-cell-6-2 {
-    grid-column: span 2;
-    grid-row: span 6;
-  }
-  
-  .grid-cell-6-3 {
-    grid-column: span 3;
-    grid-row: span 6;
-  }
-
   /* Card content styles */
   .card-content {
     height: 100%;

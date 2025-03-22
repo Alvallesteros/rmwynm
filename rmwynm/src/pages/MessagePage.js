@@ -98,6 +98,19 @@ const MessagePage = () => {
             </div>
           </div>
         );
+      case 'component':
+        const Component = card.component;
+        return (
+          <div key={index} className={baseCardClass}>
+        <div className="card-content h-full flex flex-col">
+          <div className="w-full flex flex-col justify-center">
+            <h1 className="text-2xl font-bold text-center text-green-600 pb-5">{card.title}</h1>
+            <p className="text-lg text-center text-gray-600">{card.subtitle}</p>
+          </div>
+          <Component {...card.props} />
+        </div>
+          </div>
+        );
       default:
         if (typeof card === 'string') {
           return (

@@ -1,6 +1,7 @@
 {
   "name": "rmwynm",
   "version": "0.1.0",
+  "homepage": "https://alvallesteros.github.io/rmwynm",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.1",
@@ -26,6 +27,8 @@
     "workbox-streams": "^6.4.2"
   },
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
@@ -51,6 +54,7 @@
   },
   "devDependencies": {
     "autoprefixer": "^10.4.20",
+    "gh-pages": "^6.3.0",
     "postcss": "^8.5.3",
     "tailwindcss": "^3.4.0"
   },
